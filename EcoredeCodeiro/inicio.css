@@ -311,100 +311,228 @@ body {
 
 
 /*TABELA DE INFORMAÇÃO*/
-.tabela-container {
-  width: 600px;
-  margin: 0 auto;
-  border-collapse: collapse;
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+
+h1 {
+    margin-top: 150px;
+   text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.cabecalhos {
+.container-tabelas {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 2000; /* você pode aumentar esse valor */
+  margin: 0 auto;     /* centraliza horizontalmente */
+  padding: 20px;      /* opcional, só para dar respiro nas laterais */
 }
 
-.header {
-  width: 50%;
-  position: relative;
+
+.tabela-moderna {
+  width: 590px;
+  height: auto;
+  border-collapse: collapse;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
-.header .circle {
-  width: 80px;
-  height: 80px;
+.tabela-moderna th {
+  padding: 30px 20px;
+  font-size: 1.5rem;
+  vertical-align: top;
+  background-color: #ffffff;
+}
+
+.tabela-moderna td {
+  width: 100%;
+  padding: 30px 20px;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+
+.icone-circulo {
+  width: 100px;
+  height: 100px;
+  margin: auto;
   border-radius: 50%;
-  margin: 0 auto;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
-  position: relative;
-  top: -20px;
-  z-index: 2;
+  margin-bottom: 15px;
+  font-size: 2.8rem;
 }
 
-.header.blue .circle {
-  background-color: #2196F3;
-}
-
-.header.brown .circle {
-  background-color: #8D6E63;
-}
-
-.header .label {
-  background-color: #2196F3;
+.agua-icone {
+  background-color: #00aaff;
   color: white;
-  padding: 10px;
-  font-weight: bold;
-  position: relative;
-  z-index: 1;
 }
 
-.header.brown .label {
-  background-color: #8D6E63;
-}
-
-.ribbon {
-  background-color: #1e4d7b;
+.poluicao-icone {
+  background-color: #f4c430;
   color: white;
-  padding: 10px;
+}
+
+.valor {
+  font-size: 2.2rem;
   font-weight: bold;
-  font-size: 16px;
-  position: relative;
-}
-
-.ribbon::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 0;
-  height: 100%;
-  border-left: 20px solid transparent;
-  border-top: 20px solid #1e4d7b;
-  border-bottom: 20px solid #1e4d7b;
-}
-
-table {
+  color: #222;
+  margin-bottom: 10px;
   width: 100%;
-  border-collapse: collapse;
+  display: block;        /* torna o elemento em bloco */
+  text-align: center;
 }
 
-td {
+
+
+.descricao {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: none;        /* ← remove a limitação de largura */
+  width: 100%;            /* ← ocupa toda a largura disponível */
+  display: block;
+  line-height: 1.6;
+  margin: 0 auto;         /* opcional: centraliza */
+  text-align: center;    /* ← opcional: melhor leitura */
+}
+
+
+
+/* Valor com cores por posição (percentual visual) */
+.tabela-moderna tbody tr:nth-child(1) .valor {
+  color: green;
+  font-weight: 700;
+}
+
+.tabela-moderna tbody tr:nth-child(2) .valor {
+  color: #d4a800; /* amarelo escuro */
+  font-weight: 700;
+}
+
+.tabela-moderna tbody tr:nth-child(3) .valor {
+  color: red;
+  font-weight: 700;
+}
+
+
+/* Descrição com cores específicas por linha */
+/* Descrição com cores específicas por linha */
+.tabela-moderna tbody tr:nth-child(1) .descricao {
+  color: green;
+  font-weight: 600;
+}
+
+.tabela-moderna tbody tr:nth-child(2) .descricao {
+  color: #d4a800; /* amarelo escuro para melhor contraste */
+  font-weight: 600;
+}
+
+.tabela-moderna tbody tr:nth-child(3) .descricao {
+  color: red;
+  font-weight: 600;
+}
+
+
+/*BOTÃO*/
+.form-wifi {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+}
+
+.form-wifi label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-wifi input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  padding: 14px;
-  background-color: #f0f4f8;
-  font-size: 14px;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 
-td:first-child {
-  border-right: none;
+.botao-wifi {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 36px;
+  background-color: #0077c2;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  justify-content: center;
 }
 
-td:last-child {
-  border-left: none;
+.botao-wifi:hover {
+  background-color: #005fa3;
+}
+
+.wifi-icon {
+  width: 48px;
+  height: 48px;
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+  transition: transform 0.3s ease;
+}
+
+.botao-wifi:hover .wifi-icon {
+  transform: scale(1.1);
+}
+
+/* Inicialmente, as barras estão invisíveis */
+.wifi-bar path,
+.wifi-bar circle {
+  opacity: 0;
+  transform: scale(0.8);
+  transform-origin: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.botao-wifi:hover .bar1 circle {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.1s;
+}
+
+.botao-wifi:hover .bar2 path {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.2s;
+}
+
+.botao-wifi:hover .bar3 path {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.3s;
+}
+
+.botao-wifi:hover .bar4 path {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.4s;
 }

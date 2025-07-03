@@ -11,12 +11,12 @@ async function atualizarSensores() {
     const alturaDescEl = document.getElementById('altura-desc');
     const alturaNum = parseFloat(dados.nivel);
 
-    alturaValorEl.textContent = dados.nivel + " cm";
+    alturaValorEl.textContent = dados.nivel + " %";
 
-    if (alturaNum < 50) {
+    if (alturaNum < 34) {
       alturaDescEl.textContent = "Baixo";
       alturaDescEl.style.color = "green";
-    } else if (alturaNum < 100) {
+    } else if (alturaNum < 67) {
       alturaDescEl.textContent = "Médio";
       alturaDescEl.style.color = "orange";
     } else {
@@ -31,10 +31,10 @@ async function atualizarSensores() {
 
     qualidadeValorEl.textContent = dados.tds;
 
-    if (qualidadeNum < 3) {
+    if (qualidadeNum < 668) {
       qualidadeDescEl.textContent = "Limpa";
       qualidadeDescEl.style.color = "green";
-    } else if (qualidadeNum < 7) {
+    } else if (qualidadeNum < 1334) {
       qualidadeDescEl.textContent = "Moderada";
       qualidadeDescEl.style.color = "orange";
     } else {

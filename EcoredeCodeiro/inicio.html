@@ -127,44 +127,103 @@
 
 
 
-    <div class="tabela-container">
-        <div class="cabecalhos">
-            <div class="header blue">
-                <div class="circle"><i class="fas fa-water"></i></div>
-                <div class="label">Altura da Água</div>
-            </div>
-            <div class="header brown">
-                <div class="circle"><i class="fas fa-poop"></i></div>
-                <div class="label">Nível de Sujeira</div>
-            </div>
-        </div>
+    <h1>TABELA DE INFORMAÇÃO</h1>
 
-        <div class="ribbon">Tabela de Altura e Sujeira</div>
+    <div class="container-tabelas">
+        <!-- Tabela 1: Nível da Água -->
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="icone-circulo agua-icone">💧</div>
+                        Nível da Água
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="valor">0% - 33%</div>
+                        <div class="descricao">Normal! volume de água consideravelmente baixa.</div>
+                    </td>
+                </tr>
 
-        <table>
-            <tr>
-                <td>120 cm</td>
-                <td>Baixo</td>
-            </tr>
-            <tr>
-                <td>250 cm</td>
-                <td>Médio</td>
-            </tr>
-            <tr>
-                <td>310 cm</td>
-                <td>Alto</td>
-            </tr>
-            <tr>
-                <td>145 cm</td>
-                <td>Baixo</td>
-            </tr>
-            <tr>
-                <td>270 cm</td>
-                <td>Alto</td>
-            </tr>
+                <tr>
+                    <td>
+                        <div class="valor">34% - 66%</div>
+                        <div class="descricao">Estável! o volume de água está na média.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="valor">67% - 100%</div>
+                        <div class="descricao">Arriscado! nível da água acima da média/ próxima ao limite.</div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <!-- Tabela 2: Poluição da Água -->
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="icone-circulo poluicao-icone">⚡</div>
+                        Poluição da Água
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="valor">0 - 667</div>
+                        <div class="descricao">Limpa! Existe pouca concetração de resíduos.</div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="valor">668 - 1333</div>
+                        <div class="descricao">Um pouco poluida! Existe concetração de resíduos consideraveis na água.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="valor">1334 - 2000</div>
+                        <div class="descricao">Completamente poluida! Existe nível de resíduos altos na água.</div>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 
+
+    <form method="GET" action="$authaction" class="form-wifi">
+        <input type="hidden" name="tok" value="$tok">
+        <input type="hidden" name="redir" value="$redir">
+
+
+
+        <button type="submit" class="botao-wifi">
+            <svg class="wifi-icon" viewBox="0 0 24 24">
+                <g class="wifi-bar bar4">
+                    <path d="M2.5 9.5a15.5 15.5 0 0 1 19 0" />
+                </g>
+                <g class="wifi-bar bar3">
+                    <path d="M5 12.5a11 11 0 0 1 14 0" />
+                </g>
+                <g class="wifi-bar bar2">
+                    <path d="M7.5 15.5a7 7 0 0 1 9 0" />
+                </g>
+                <g class="wifi-bar bar1">
+                    <circle cx="12" cy="19.5" r="1.5" />
+                </g>
+            </svg>
+            Continue
+        </button>
+    </form>
 
 
 
