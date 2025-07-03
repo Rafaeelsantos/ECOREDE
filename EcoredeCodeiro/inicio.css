@@ -1,0 +1,947 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: rgb(218, 216, 214);
+}
+
+.headeer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background-color: #292121;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+  transform: none;
+}
+
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+  opacity: 0.6;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+
+/*BANNER*/
+.hero {
+  margin-top: 100px;
+  /* evita que o banner fique escondido */
+  width: 100vw;
+  height: 600px;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+}
+
+.hero-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url('imagens/corregoUrbano.webp');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  /* empilha título e subtítulo verticalmente */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-background h1 {
+  position: relative;
+  z-index: 2;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+.hero-background p {
+  position: relative;
+  z-index: 2;
+  font-size: 1.25rem;
+  max-width: 600px;
+  /* limita largura para facilitar leitura */
+  margin: 0 auto;
+  color: white;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+  line-height: 1.5;
+  padding: 0 10px;
+}
+
+
+/*FORMATAÇÃO DOS TEXTOS*/
+.intro {
+  max-width: 1200px;
+  /* antes era 800px */
+  margin: 60px auto;
+  padding: 60px 40px;
+  /* pode ajustar também */
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  text-align: justify;
+  color: #000000;
+}
+
+
+/*CARROSEL DE IMAGENS*/
+.carrossel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px auto;
+  height: 500px;
+  /* aumente aqui (antes era 300px) */
+  overflow: hidden;
+}
+
+.carrossel-container {
+  position: relative;
+  width: 100%;
+  max-width: 70%;
+  /* também aumentamos a largura máxima */
+  height: 100%;
+}
+
+.carrossel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* cobre todo o espaço sem distorcer */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+}
+
+.carrossel-img.active {
+  opacity: 1;
+}
+
+
+/*MONITORAMENTO*/
+.monitoramento {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+.monitoramento h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1f2d2d;
+}
+
+.monitoramento p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: #444;
+}
+
+.cartoes {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  /* mais espaço entre os cartões */
+  flex-wrap: nowrap;
+  /* impede quebra */
+}
+
+.cartao {
+  width: 5000px;
+  /* bem mais largo */
+  padding: 40px;
+  /* mais espaço interno */
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #1f2d2d;
+  flex-shrink: 1;
+}
+
+.cartao h3 {
+  font-size: 2.4rem;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.cartao strong {
+  font-size: 4.2rem;
+  margin-top: 24px;
+  font-weight: 800;
+}
+
+.cartao span {
+  font-size: 1.5rem;
+  margin-top: 14px;
+  color: #333;
+}
+
+.cartao .valor-anterior {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #c04e0b;
+  /* tom neutro para parecer valor anterior */
+  margin-bottom: 6px;
+}
+
+
+
+
+
+
+/* Cartão azul */
+.cartao.agua {
+  background-color: #d5eafc;
+}
+
+.cartao.agua .icone svg {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 12px;
+  fill: #0077c2;
+  /* azul escuro */
+}
+
+/* Cartão verde */
+.cartao.qualidade {
+  background-color: #d9f3e5;
+}
+
+.cartao.qualidade .icone svg {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 12px;
+  fill: #2e7d32;
+  /* verde escuro */
+}
+
+
+
+/*TABELA DE INFORMAÇÃO*/
+
+h1 {
+  margin-top: 150px;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.container-tabelas {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 2000;
+  /* você pode aumentar esse valor */
+  margin: 0 auto;
+  /* centraliza horizontalmente */
+  padding: 20px;
+  /* opcional, só para dar respiro nas laterais */
+}
+
+
+.tabela-moderna {
+  width: 590px;
+  height: auto;
+  border-collapse: collapse;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.tabela-moderna th {
+  padding: 30px 20px;
+  font-size: 1.5rem;
+  vertical-align: top;
+  background-color: #ffffff;
+}
+
+.tabela-moderna td {
+  width: 100%;
+  padding: 30px 20px;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+
+.icone-circulo {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  font-size: 2.8rem;
+}
+
+.agua-icone {
+  background-color: #00aaff;
+  color: white;
+}
+
+.poluicao-icone {
+  background-color: #f4c430;
+  color: white;
+}
+
+.valor {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 10px;
+  width: 100%;
+  display: block;
+  /* torna o elemento em bloco */
+  text-align: center;
+}
+
+
+
+.descricao {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: none;
+  /* ← remove a limitação de largura */
+  width: 100%;
+  /* ← ocupa toda a largura disponível */
+  display: block;
+  line-height: 1.6;
+  margin: 0 auto;
+  /* opcional: centraliza */
+  text-align: center;
+  /* ← opcional: melhor leitura */
+}
+
+
+
+/* Valor com cores por posição (percentual visual) */
+.tabela-moderna tbody tr:nth-child(1) .valor {
+  color: green;
+  font-weight: 700;
+}
+
+.tabela-moderna tbody tr:nth-child(2) .valor {
+  color: #d4a800;
+  /* amarelo escuro */
+  font-weight: 700;
+}
+
+.tabela-moderna tbody tr:nth-child(3) .valor {
+  color: red;
+  font-weight: 700;
+}
+
+
+/* Descrição com cores específicas por linha */
+/* Descrição com cores específicas por linha */
+.tabela-moderna tbody tr:nth-child(1) .descricao {
+  color: green;
+  font-weight: 600;
+}
+
+.tabela-moderna tbody tr:nth-child(2) .descricao {
+  color: #d4a800;
+  /* amarelo escuro para melhor contraste */
+  font-weight: 600;
+}
+
+.tabela-moderna tbody tr:nth-child(3) .descricao {
+  color: red;
+  font-weight: 600;
+}
+
+
+/*BOTÃO*/
+.form-wifi {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+}
+
+.form-wifi label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-wifi input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.botao-wifi {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 36px;
+  background-color: #0077c2;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  justify-content: center;
+}
+
+.botao-wifi:hover {
+  background-color: #005fa3;
+}
+
+.wifi-icon {
+  width: 48px;
+  height: 48px;
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+  transition: transform 0.3s ease;
+}
+
+.botao-wifi:hover .wifi-icon {
+  transform: scale(1.1);
+}
+
+/* Inicialmente, as barras estão invisíveis */
+.wifi-bar path,
+.wifi-bar circle {
+  opacity: 0;
+  transform: scale(0.8);
+  transform-origin: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.botao-wifi:hover .bar1 circle {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.1s;
+}
+
+.botao-wifi:hover .bar2 path {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.2s;
+}
+
+.botao-wifi:hover .bar3 path {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.3s;
+}
+
+.botao-wifi:hover .bar4 path {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.4s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 425px) {
+
+  /* HEADER */
+  .headeer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #292121;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+
+  .nav ul {
+    display: flex;
+    flex-direction: row;
+    /* garante que fique lado a lado */
+    gap: 16px;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+
+  .logo img {
+    height: 60px;
+    transform: scale(1);
+  }
+
+  /* HERO */
+  .hero {
+    height: auto;
+  }
+
+  .hero-background {
+    padding: 40px 20px;
+  }
+
+  .hero-background h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-background p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  /* INTRO TEXT */
+  .intro {
+    padding: 30px 20px;
+  }
+
+  .intro h1 {
+    font-size: 1.6rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
+  }
+
+  /* CARROSSEL */
+  .carrossel {
+    height: 260px;
+    margin: 40px auto;
+  }
+
+  .carrossel-container {
+    max-width: 100%;
+  }
+
+  /* MONITORAMENTO */
+  .cartoes {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .cartao {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .cartao h3 {
+    font-size: 1.5rem;
+  }
+
+  .cartao strong {
+    font-size: 2.5rem;
+  }
+
+  .cartao span {
+    font-size: 1rem;
+  }
+
+  .monitoramento h2 {
+    font-size: 1.8rem;
+  }
+
+  .monitoramento p {
+    font-size: 1rem;
+  }
+
+  /* TABELAS */
+  .container-tabelas {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .tabela-moderna {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .tabela-moderna th {
+    font-size: 1.2rem;
+    padding: 20px 10px;
+  }
+
+  .tabela-moderna td {
+    font-size: 1rem;
+    padding: 20px 10px;
+  }
+
+  .icone-circulo {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+
+  .valor {
+    font-size: 1.5rem;
+  }
+
+  .descricao {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin: 40px 0 20px;
+  }
+
+  /* BOTÃO WIFI */
+  .form-wifi {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .botao-wifi {
+    font-size: 1.1rem;
+    padding: 16px;
+  }
+
+  .wifi-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+
+@media (max-width: 450px) {
+  .headeer {
+    padding: 0 16px;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .nav ul {
+    gap: 12px;
+  }
+
+  .nav a {
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    height: auto;
+  }
+
+  .hero-background h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-background p {
+    font-size: 1rem;
+  }
+
+  .intro {
+    padding: 30px 16px;
+  }
+
+  .intro h1 {
+    font-size: 1.5rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .carrossel {
+    height: 250px;
+  }
+
+  .cartoes {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .cartao {
+    width: 100%;
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .cartao h3 {
+    font-size: 1.4rem;
+  }
+
+  .cartao strong {
+    font-size: 2.4rem;
+  }
+
+  .container-tabelas {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tabela-moderna {
+    width: 100%;
+    max-width: 95%;
+  }
+
+  .tabela-moderna th,
+  .tabela-moderna td {
+    padding: 20px 10px;
+    font-size: 0.95rem;
+  }
+
+  .form-wifi {
+    width: 90%;
+  }
+
+  .botao-wifi {
+    padding: 14px;
+    font-size: 1.1rem;
+  }
+
+  .wifi-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .headeer {
+    height: 90px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .nav ul {
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nav a {
+    font-size: 1rem;
+  }
+
+  .hero {
+    height: auto;
+    margin-top: 90px;
+  }
+
+  .hero-background {
+    padding: 40px 16px;
+  }
+
+  .hero-background h1 {
+    font-size: 2rem;
+  }
+
+  .hero-background p {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+
+  .intro {
+    padding: 40px 16px;
+  }
+
+  .intro h1 {
+    font-size: 1.6rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
+  }
+
+  .carrossel {
+    height: 280px;
+    margin: 40px auto;
+  }
+
+  .carrossel-container {
+    max-width: 95%;
+  }
+
+  .cartoes {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cartao {
+    width: 100%;
+    max-width: 90%;
+    padding: 24px;
+  }
+
+  .cartao h3 {
+    font-size: 1.5rem;
+  }
+
+  .cartao strong {
+    font-size: 2.6rem;
+  }
+
+  .container-tabelas {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .tabela-moderna {
+    width: 100%;
+    max-width: 95%;
+  }
+
+  .tabela-moderna th,
+  .tabela-moderna td {
+    padding: 20px 10px;
+    font-size: 1rem;
+  }
+
+  .form-wifi {
+    width: 90%;
+  }
+
+  .botao-wifi {
+    font-size: 1.1rem;
+    padding: 14px;
+  }
+
+  .wifi-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
